@@ -1,0 +1,16 @@
+.footer-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+}
+
+.footer-counter {
+  margin: 0 auto;
+  width: fit-content;
+  text-align: center;
+}
+
+.footer-counter-label {
+  margin: 8px 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+}

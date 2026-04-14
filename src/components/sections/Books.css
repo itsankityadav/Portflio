@@ -1,0 +1,119 @@
+.mySwiper {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.mySwiper .swiper-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding: 0.5rem 0.25rem 1.25rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+.mySwiper .swiper-slide {
+  flex: 0 0 clamp(220px, 28vw, 300px);
+  height: auto;
+  scroll-snap-align: center;
+}
+
+.mySwiper .swiper-pagination {
+  display: none;
+}
+
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--border-ink);
+  background: var(--bg-paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.mySwiper .swiper-button-next:hover,
+.mySwiper .swiper-button-prev:hover {
+  background: var(--text-ink);
+  color: #fff !important;
+}
+
+.mySwiper .swiper-button-prev {
+  right: 3.5rem;
+}
+
+.mySwiper .swiper-button-next {
+  right: 0;
+}
+
+.mySwiper .swiper-button-next::before,
+.mySwiper .swiper-button-prev::before {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.mySwiper .swiper-button-prev::before {
+  content: '<';
+}
+
+.mySwiper .swiper-button-next::before {
+  content: '>';
+}
+
+.mySwiper .swiper-button-next.is-disabled,
+.mySwiper .swiper-button-prev.is-disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.project-card {
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.project-card .project-type {
+  margin-bottom: 0;
+}
+
+.project-title {
+  display: block;
+  font-size: 1.35rem;
+  font-family: var(--font-serif);
+}
+
+.project-copy {
+  margin: 0;
+  font-family: var(--font-serif);
+  line-height: 1.7;
+}
+
+.project-stack {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 767px) {
+  .mySwiper {
+    padding-top: 4rem;
+  }
+
+  .mySwiper .swiper-wrapper {
+    gap: 1rem;
+  }
+
+  .mySwiper .swiper-slide {
+    flex-basis: min(78vw, 280px);
+  }
+}

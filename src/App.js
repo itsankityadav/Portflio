@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { PAGE_SECTIONS } from './config/pageSections';
+import { SITE_HEAD_LINKS, SITE_META, structuredData } from './config/site';
+import { useDocumentHead } from './hooks/useDocumentHead';
+import Preloader from './components/common/Preloader';
+import ProgressBar from './components/common/ProgressBar';
+import ScrollTop from './components/common/ScrollTop';
+import Footer from './components/common/Footer';
+import Navbar from './components/layout/Navbar';
 
 function App() {
+  useDocumentHead({
+    ...SITE_META,
+    links: SITE_HEAD_LINKS,
+    structuredData,
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Preloader />
+      <ProgressBar />
+      <Navbar />
+      <main>
+        {PAGE_SECTIONS.map(({ id, Component, props = {} }) => (
+          <Component key={id} {...props} />
+        ))}
+      </main>
+      <Footer />
+      <ScrollTop />
+    </>
   );
 }
 
